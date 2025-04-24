@@ -1,0 +1,125 @@
+/* PlayGame.css */
+
+:root {
+  --pg-green-jungle: #3f6a3f;
+  --pg-green-dark: #2b472b;
+  --pg-stone: #c5b8a5;
+  --pg-wood: #8b5a2b;
+  --pg-gold: #d4af37;
+  --pg-shadow: rgba(0, 0, 0, 0.4);
+  --pg-font: 'Cinzel Decorative', serif;
+}
+
+/* Conteneur */
+.pg-container {
+  background: linear-gradient(145deg, var(--pg-green-jungle), var(--pg-green-dark));
+  padding: 1.5rem;
+  border: 4px solid var(--pg-stone);
+  border-radius: 8px;
+  box-shadow: 0 6px 12px var(--pg-shadow);
+  color: var(--pg-wood);
+  font-family: var(--pg-font);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Titre et instructions */
+.pg-header {
+  font-size: 2rem;
+  color: var(--pg-gold);
+  text-shadow: 2px 2px var(--pg-shadow);
+  margin-bottom: 0.5rem;
+}
+.pg-instructions {
+  font-size: 0.9rem;
+  color: #eee;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* Colonnes */
+.pg-columns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+.pg-column {
+  background: var(--pg-stone);
+  padding: 0.75rem;
+  border: 3px solid var(--pg-wood);
+  border-radius: 6px;
+  box-shadow: inset 0 2px 4px var(--pg-shadow);
+  min-height: 6rem;
+  transition: background 0.2s, border-color 0.2s;
+}
+/* Surbrillance quand on survole la drop zone */
+.pg-column.pg-over {
+  background: #fffbea;
+  border-color: var(--pg-gold);
+}
+
+/* Titre de colonne */
+.pg-column-title {
+  font-weight: bold;
+  color: var(--pg-gold);
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+/* Dés */
+.pg-dice-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.pg-die-button {
+  background: var(--pg-stone);
+  border: 2px solid var(--pg-wood);
+  border-radius: 4px;
+  padding: 0.4rem 0.8rem;
+  cursor: grab;
+  box-shadow: inset 0 1px 2px var(--pg-shadow);
+  transition: box-shadow 0.2s;
+  font-family: inherit;
+}
+.pg-die-button:active {
+  cursor: grabbing;
+}
+.pg-die-button.pg-dragging {
+  opacity: 0.6;
+  box-shadow: 0 4px 8px var(--pg-shadow);
+}
+
+/* Bouton Valider */
+.pg-validate-button {
+  background: linear-gradient(145deg, #f5d76e, var(--pg-gold));
+  color: var(--pg-wood);
+  border: 4px solid var(--pg-wood);
+  border-radius: 8px;
+  padding: 0.6rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 8px var(--pg-shadow);
+  transition: transform 0.1s, box-shadow 0.2s;
+  margin-bottom: 0.75rem;
+}
+.pg-validate-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px var(--pg-shadow);
+}
+
+/* Message */
+.pg-message {
+  background: rgba(255, 248, 220, 0.9);
+  color: var(--pg-wood);
+  padding: 0.5rem 1rem;
+  border: 3px solid var(--pg-wood);
+  border-radius: 6px;
+  box-shadow: inset 0 2px 4px var(--pg-shadow);
+  text-align: center;
+  font-weight: bold;
+  margin-top: 0.5rem;
+}

@@ -1,0 +1,143 @@
+/* src/App.css */
+
+/* 1. Variables de thème, à adapter selon tes visuels */
+:root {
+  --green-jungle: #3f6a3f;
+  --green-foncé: #2b472b;
+  --stone-gray: #c5b8a5;
+  --wood-brown: #8b5a2b;
+  --golden: #d4af37;
+  --ombre: rgba(0, 0, 0, 0.4);
+  /* Si tu as un motif de feuilles, décommente et pointe vers ton image */
+  /* --bg-leaves: url('./assets/feuilles.png'); */
+  --font-tribal: 'Cinzel Decorative', serif; /* ou autre police tribale */
+}
+
+/* 2. Fond général */
+body, .app-container {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  /* background: var(--bg-leaves) center/cover no-repeat; */
+  background: linear-gradient(to bottom right, var(--green-jungle), var(--green-foncé));
+  font-family: var(--font-tribal);
+  color: var(--stone-gray);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 3. En-tête façon “stone-carved” */
+.app-header {
+  margin: 2rem 0;
+  text-align: center;
+}
+.app-header h1 {
+  font-size: 3rem;
+  color: var(--golden);
+  text-shadow: 3px 3px var(--ombre);
+  border: 4px solid var(--stone-gray);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.1);
+}
+
+/* 4. Grille de sélections de dés façon “tuiles pierre” */
+.dice-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 1rem;
+  width: 90%;
+  max-width: 800px;
+}
+.dice-select-wrapper {
+  position: relative;
+}
+.dice-select {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  appearance: none;
+  background: var(--stone-gray) url("data:image/svg+xml,%3Csvg width='20' height='20' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='10' cy='10' r='2' fill='%238b5a2b'/%3E%3C/svg%3E") center right no-repeat;
+  background-size: 1rem;
+  border: 3px solid var(--wood-brown);
+  border-radius: 6px;
+  color: var(--wood-brown);
+  cursor: pointer;
+  box-shadow: inset 0 2px 4px var(--ombre);
+}
+.dice-select:hover,
+.dice-select:focus {
+  border-color: var(--golden);
+  box-shadow: inset 0 2px 6px var(--ombre), 0 0 8px var(--golden);
+}
+
+/* 5. Bouton “Calculer” style relique dorée */
+.compute-button {
+  margin-top: 1.5rem;
+  padding: 0.75rem 2rem;
+  font-size: 1.2rem;
+  font-family: inherit;
+  background: linear-gradient(145deg, #f5d76e, #d4af37);
+  color: var(--wood-brown);
+  border: 4px solid var(--wood-brown);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px var(--ombre);
+  cursor: pointer;
+  transition: transform 0.1s, box-shadow 0.2s;
+}
+.compute-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px var(--ombre);
+}
+
+/* 6. Section solution sur fond parcheminé */
+.solution-section {
+  width: 90%;
+  max-width: 800px;
+  margin-top: 2rem;
+  background: rgba(255, 248, 220, 0.9); /* couleur très claire façon vieux parchemin */
+  padding: 1.5rem;
+  border: 3px solid var(--wood-brown);
+  border-radius: 8px;
+  box-shadow: 0 4px 6px var(--ombre);
+}
+.error-text {
+  color: var(--golden);
+  text-align: center;
+  font-weight: bold;
+}
+
+/* 7. Affichage des groupes façon totems */
+.groups-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+.group {
+  flex: 1 1 200px;
+  background: var(--stone-gray);
+  padding: 1rem;
+  border: 3px solid var(--wood-brown);
+  border-radius: 6px;
+  box-shadow: inset 0 2px 4px var(--ombre);
+  position: relative;
+}
+.group h2 {
+  margin: 0 0 0.5rem;
+  color: var(--golden);
+  text-shadow: 1px 1px var(--ombre);
+  font-size: 1.2rem;
+  text-align: center;
+}
+.group ul {
+  list-style-image: url("data:image/svg+xml,%3Csvg width='8' height='8' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='4' cy='4' r='2' fill='%238b5a2b'/%3E%3C/svg%3E");
+  padding-left: 1rem;
+  color: var(--wood-brown);
+}
+
+.w-100{
+  width: 80%;
+}
